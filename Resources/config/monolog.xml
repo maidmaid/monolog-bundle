@@ -34,5 +34,10 @@
         <service id="monolog.formatter.logstash" class="Monolog\Formatter\LogstashFormatter" public="false">
             <argument index="0">app</argument>
         </service>
+
+        <service id="monolog.processor.token" class="Symfony\Bridge\Monolog\Processor\TokenProcessor" public="false" >
+            <argument type="service" id="security.token_storage" />
+            <tag name="monolog.processor" />
+        </service>
     </services>
 </container>
